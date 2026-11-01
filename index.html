@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO -->
+  <title>AirShop — Дешевые авиабилеты онлайн | Поиск и бронирование</title>
+  <meta name="description" content="Купить авиабилеты по низким ценам. Поиск дешевых билетов на самолет по всему миру. Бронирование за 2 минуты.">
+  <meta name="keywords" content="авиабилеты, дешевые билеты, самолет, бронирование">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">✈ AirShop</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Главная</a></li>
+          <li><a href="catalog.html">Авиабилеты</a></li>
+          <li><a href="booking.html">Бронирование</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Найдите дешевые авиабилеты</h1>
+        <p>Быстрый поиск и бронирование по всему миру</p>
+      </div>
+    </section>
+
+    <section class="search-section">
+      <div class="container">
+        <form class="search-form" id="searchForm" novalidate>
+          <div class="form-group">
+            <label for="from">Откуда</label>
+            <input type="text" id="from" placeholder="Москва" required minlength="2">
+            <span class="error-msg" id="fromError"></span>
+          </div>
+          <div class="form-group">
+            <label for="to">Куда</label>
+            <input type="text" id="to" placeholder="Сочи" required minlength="2">
+            <span class="error-msg" id="toError"></span>
+          </div>
+          <div class="form-group">
+            <label for="date">Дата вылета</label>
+            <input type="date" id="date" required>
+            <span class="error-msg" id="dateError"></span>
+          </div>
+          <button type="submit" class="btn-primary">Найти билеты</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="catalog-section">
+      <div class="container">
+        <h2>Популярные направления</h2>
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-img-wrapper">
+              <img src="sochi.jpg" alt="Сочи">
+            </div>
+            <div class="card-body">
+              <h3>Москва → Сочи</h3>
+              <p class="price">от 4 500 ₽</p>
+              <a href="booking.html" class="btn-card">Выбрать</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img-wrapper">
+              <img src="dostoprimechatelnosti-sankt-peterburga.jpg" alt="Санкт-Петербург">
+            </div>
+            <div class="card-body">
+              <h3>Москва → Санкт-Петербург</h3>
+              <p class="price">от 2 800 ₽</p>
+              <a href="booking.html" class="btn-card">Выбрать</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img-wrapper">
+              <img src="2022-09-30_084042.jpg" alt="Казань">
+            </div>
+            <div class="card-body">
+              <h3>Москва → Казань</h3>
+              <p class="price">от 3 200 ₽</p>
+              <a href="booking.html" class="btn-card">Выбрать</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 AirShop. Все права защищены.</p>
+      <p><a href="email.html">Посмотреть пример Email-рассылки</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Валидация формы поиска
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+      
+      const from = document.getElementById('from');
+      const to = document.getElementById('to');
+      const date = document.getElementById('date');
+      
+      // Очистка ошибок
+      document.getElementById('fromError').textContent = '';
+      document.getElementById('toError').textContent = '';
+      document.getElementById('dateError').textContent = '';
+      
+      if (from.value.trim().length < 2) {
+        document.getElementById('fromError').textContent = 'Укажите город (от 2 символов)';
+        valid = false;
+      }
+      if (to.value.trim().length < 2) {
+        document.getElementById('toError').textContent = 'Укажите город (от 2 символов)';
+        valid = false;
+      }
+      if (!date.value) {
+        document.getElementById('dateError').textContent = 'Выберите дату вылета';
+        valid = false;
+      }
+      
+      if (valid) {
+        window.location.href = 'catalog.html'; // Имитация поиска
+      }
+    });
+  </script>
+</body>
+</html>
